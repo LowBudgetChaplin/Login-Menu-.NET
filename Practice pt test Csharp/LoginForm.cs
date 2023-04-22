@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +24,11 @@ namespace Practice_pt_test_Csharp
 
         private void btnLogin2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Login()
+        {
             this.Hide();
 
             string id = txtUserid.Text;
@@ -41,6 +46,12 @@ namespace Practice_pt_test_Csharp
             }
         }
 
+        private void ResetMyForm()
+        {
+            txtUserid.Text = "";
+            txtPassword.Text = "";
+        }
+
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
@@ -48,8 +59,23 @@ namespace Practice_pt_test_Csharp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtUserid.Text = "";
-            txtPassword.Text = "";
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ResetMyForm();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter) {
+                Login();
+            }
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                ResetMyForm();
+            }
         }
     }
 }
